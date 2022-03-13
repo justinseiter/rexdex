@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Pagination({ page, totalPages, handlePageClick, loading }) {
+function Pagination({ page, totalPages, handlePagingClick, loading }) {
     const shouldDisable = (variant) => {
         if ((page === 1 && variant === "back") || loading) {
             return true;
@@ -14,13 +14,13 @@ function Pagination({ page, totalPages, handlePageClick, loading }) {
         <div className="Pagination">
             <button
                 disabled={shouldDisable("back")}
-                onClick={() => handlePageClick(1)}
+                onClick={() => handlePagingClick(1)}
             >
                 First
             </button>
             <button
                 disabled={shouldDisable("back")}
-                onClick={() => handlePageClick(page - 1)}
+                onClick={() => handlePagingClick(page - 1)}
             >
                 Previous
             </button>
@@ -29,13 +29,13 @@ function Pagination({ page, totalPages, handlePageClick, loading }) {
             </span>
             <button
                 disabled={shouldDisable("forward")}
-                onClick={() => handlePageClick(page + 1)}
+                onClick={() => handlePagingClick(page + 1)}
             >
                 Next
             </button>
             <button
                 disabled={shouldDisable("forward")}
-                onClick={() => handlePageClick(totalPages)}
+                onClick={() => handlePagingClick(totalPages)}
             >
                 Last
             </button>
@@ -46,7 +46,7 @@ function Pagination({ page, totalPages, handlePageClick, loading }) {
 Pagination.propTypes = {
     page: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
-    handlePageClick: PropTypes.func.isRequired,
+    handlePagingClick: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
 }
 

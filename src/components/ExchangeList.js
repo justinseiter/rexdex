@@ -34,7 +34,7 @@ function ExchangeList({ exchanges, loading }) {
 }
 
 ExchangeList.propTypes = {
-    exchanges: PropTypes.object.isRequired,
+    exchanges: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
 }
 

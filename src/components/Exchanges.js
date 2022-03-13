@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import ExchangeList from "./ExchangeList";
 import Pagination from "./Pagination";
 
-const API_BASE_URL = "https://api.coingecko.com/api/v3/exchanges?per_page=10";
+const PER_PAGE = 10;
+const API_BASE_URL = `https://api.coingecko.com/api/v3/exchanges?per_page=${PER_PAGE}`;
 
 function Exchanges() {
     const [exchanges, setExchanges] = useState([]);
@@ -15,7 +16,8 @@ function Exchanges() {
         fetch(`${API_BASE_URL}&page=${page}`)
             .then((res) => {
                 const headers = [...res.headers];
-                setTotalPages(headers[4][1] / 10);
+                // Parses the total_count of exchanges and divides by our paging var from response headers
+                setTotalPages(headers[4][1] / PER_PAGE);
                 return res.json();
             })
             .then((exchanges) => {
@@ -31,7 +33,7 @@ function Exchanges() {
             <Pagination
                 page={page}
                 totalPages={totalPages}
-                handlePageClick={(val) => setPage(val)}
+                handlePagingClick={(pageNum) => setPage(pageNum)}
                 loading={loading}
             />
         </main>
