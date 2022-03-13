@@ -20,7 +20,8 @@ function ExchangeList({ exchanges, loading }) {
             <tbody>
                 {exchanges.map((exchange) => (
                     <ExchangeListItem
-                        key={exchange.trust_score_rank}
+                        id={exchange.id}
+                        key={exchange.id}
                         name={exchange.name}
                         country={exchange.country}
                         url={exchange.url}

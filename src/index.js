@@ -3,10 +3,22 @@ import ReactDOM from "react-dom";
 import "./styles/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import Exchange from "./components/Exchange";
+import Exchanges from "./components/Exchanges";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />}>
+                    <Route index element={<Exchanges />} />
+                    <Route path="/:exchangeId" element={<Exchange />} />
+                    <Route path="about" element={<About />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
 );

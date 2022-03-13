@@ -1,4 +1,48 @@
 .App {
-    margin: auto;
-    max-width: 640px;
+    background: white;
+    &__header {
+        margin: auto;
+        padding: 1rem 0;
+        background: gold;
+
+        &__logo {
+            height: 56px;
+            pointer-events: none;
+        }
+
+        &__content {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 1em;
+        }
+    }
+
+    &__subheader {
+        background: #f1f1f1;
+        margin-bottom: 3rem;
+
+        &__content {
+            margin: auto;
+            padding:  1rem;
+            font-size: 0.75rem;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__heading {
+            font-size: 1.25rem;
+            line-height: 1;
+            margin: 0;
+        }
+    }
+
+    &__main {
+        max-width: 800px;
+        margin: auto;
+        padding: 0 1em;
+        min-height: 300px;
+
+    }
 }
