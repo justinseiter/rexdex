@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import Avatar from "./Avatar";
+
 function ExchangeList({ exchanges, loading }) {
     if (loading) return <>Loading...</>;
 
@@ -17,7 +20,7 @@ function ExchangeList({ exchanges, loading }) {
                         <tr key={exchange.trust_score_rank}>
                             <td>{exchange.trust_score_rank}</td>
                             <td>
-                                <img alt="" src={exchange.image} width="30px" />
+                                <Avatar src={exchange.image} />
                                 {exchange.name}
                             </td>
                             <td>{exchange.country}</td>
@@ -28,6 +31,11 @@ function ExchangeList({ exchanges, loading }) {
             </tbody>
         </table>
     );
+}
+
+ExchangeList.propTypes = {
+    exchanges: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired,
 }
 
 export default ExchangeList;

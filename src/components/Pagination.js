@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 function Pagination({ page, totalPages, handlePageClick, loading }) {
     const shouldDisable = (variant) => {
-        if (page === 1 && variant === "back") {
+        if ((page === 1 && variant === "back") || loading) {
             return true;
         }
-        if (page === totalPages && variant === "forward") {
+        if ((page === totalPages && variant === "forward") || loading) {
             return true;
         }
     };
@@ -39,6 +41,13 @@ function Pagination({ page, totalPages, handlePageClick, loading }) {
             </button>
         </div>
     );
+}
+
+Pagination.propTypes = {
+    page: PropTypes.number.isRequired,
+    totalPages: PropTypes.number.isRequired,
+    handlePageClick: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
 }
 
 export default Pagination;
