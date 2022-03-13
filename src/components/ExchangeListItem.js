@@ -12,19 +12,23 @@ function ExchangeListItem({
     return (
         <tr>
             <td>{rank}</td>
-            <td className="hasAvatar">
+            <td className="has-avatar">
                 <div>
-                    {/*alt tag intentionally omitted*/}
-                    {/*see: https://shrtm.nu/6u9P*/}
+                    {/* alt tag intentionally omitted */}
+                    {/* see: https://shrtm.nu/6u9P */}
                     <Avatar src={image} />
                     {name}
                 </div>
             </td>
-            <td>{country}</td>
+            <td>{country || "N/A"}</td>
             <td>
-                <a href={url} target="_blank" rel="noreferrer">
-                    {url && prettyUrl(url)}
-                </a>
+                {url ? (
+                    <a href={url} target="_blank" rel="noreferrer">
+                        {prettyUrl(url)}
+                    </a>
+                ) : (
+                    <>N/A</>
+                )}
             </td>
         </tr>
     );

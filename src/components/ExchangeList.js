@@ -9,7 +9,9 @@ function ExchangeList({ exchanges, loading }) {
             <caption>Cryptocurrency exchanges ordered by Trust Rank.</caption>
             <thead>
                 <tr>
-                    <th width="30px"><span className="sr-only">Trust Rank</span></th>
+                    <th width="30px">
+                        <span className="sr-only">Trust Rank</span>
+                    </th>
                     <th>Name</th>
                     <th>Country</th>
                     <th>Website</th>
