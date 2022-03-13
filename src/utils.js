@@ -1,6 +1,5 @@
 const prettyUrl = (url) => {
-    const host = new URL(url).host;
-    return host.replace(/^www\./, "");
+    return url.replace(/(http(s)?:\/\/)|(\/.*){1}/g, '');
 };
 
 module.exports = {

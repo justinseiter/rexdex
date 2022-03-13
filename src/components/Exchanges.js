@@ -7,7 +7,7 @@ const API_BASE_URL = `https://api.coingecko.com/api/v3/exchanges?per_page=${PER_
 
 function Exchanges() {
     const [exchanges, setExchanges] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(13);
     const [loading, setLoading] = useState(false);
     const [totalPages, setTotalPages] = useState(0);
 
