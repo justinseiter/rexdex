@@ -17,7 +17,7 @@ function Exchanges() {
             .then((res) => {
                 const headers = [...res.headers];
                 // Parses the total_count of exchanges and divides by our paging var from response headers
-                setTotalPages(headers[4][1] / PER_PAGE);
+                setTotalPages(Math.ceil(headers[4][1] / PER_PAGE));
                 return res.json();
             })
             .then((exchanges) => {
@@ -29,6 +29,12 @@ function Exchanges() {
     return (
         <main>
             <h1>Exchanges</h1>
+            <Pagination
+                page={page}
+                totalPages={totalPages}
+                handlePagingClick={(pageNum) => setPage(pageNum)}
+                loading={loading}
+            />
             <ExchangeList exchanges={exchanges} loading={loading} />
             <Pagination
                 page={page}

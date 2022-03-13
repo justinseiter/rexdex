@@ -3,7 +3,14 @@
 
 // Setup for app-wide usage
 @import "base/variables";
+@import "base/mixins";
+@import "base/utils";
 @import "base/page";
+@import "base/button";
+@import "base/anchor";
+@import "base/table";
 
 // App and components
 @import "components/app";
+@import "components/pagination";
+@import "components/avatar";

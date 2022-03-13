@@ -1,0 +1,39 @@
+@mixin visually-hidden() {
+    // scss-lint:disable ImportantRule
+    position: absolute !important;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    width: 1px;
+
+    /*
+    * Extends the .sr-only class to allow the element
+    * to be focusable when navigated to via the keyboard:
+    * https://www.drupal.org/node/897638
+    * This is a fast, simple solution when you need to
+    * obscure a “Skip to main content" link or an HTML5 heading.
+    * This is especially great because you can obscure any text
+    * on the page, but allow focusable text to appear when it’s
+    * appropriate (i.e. on focus).
+    */
+
+    &.focusable:active,
+    &.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        white-space: inherit;
+        width: auto;
+    }
+}
+
+@mixin input-focus-hover() {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px blue;
+    outline: none;
+}

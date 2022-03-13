@@ -1,33 +1,31 @@
 import PropTypes from "prop-types";
-import Avatar from "./Avatar";
+import ExchangeListItem from "./ExchangeListItem";
 
 function ExchangeList({ exchanges, loading }) {
     if (loading) return <>Loading...</>;
 
     return (
         <table>
+            <caption>Cryptocurrency exchanges ordered by Trust Rank.</caption>
             <thead>
                 <tr>
-                    <th>Trust Rank</th>
+                    <th width="30px"><span className="sr-only">Trust Rank</span></th>
                     <th>Name</th>
                     <th>Country</th>
                     <th>Website</th>
                 </tr>
             </thead>
             <tbody>
-                {exchanges.map((exchange) => {
-                    return (
-                        <tr key={exchange.trust_score_rank}>
-                            <td>{exchange.trust_score_rank}</td>
-                            <td>
-                                <Avatar src={exchange.image} />
-                                {exchange.name}
-                            </td>
-                            <td>{exchange.country}</td>
-                            <td>{exchange.url}</td>
-                        </tr>
-                    );
-                })}
+                {exchanges.map((exchange) => (
+                    <ExchangeListItem
+                        key={exchange.trust_score_rank}
+                        name={exchange.name}
+                        country={exchange.country}
+                        url={exchange.url}
+                        rank={exchange.trust_score_rank}
+                        image={exchange.image}
+                    />
+                ))}
             </tbody>
         </table>
     );
@@ -36,6 +34,6 @@ function ExchangeList({ exchanges, loading }) {
 ExchangeList.propTypes = {
     exchanges: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-}
+};
 
 export default ExchangeList;

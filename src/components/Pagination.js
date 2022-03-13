@@ -15,29 +15,37 @@ function Pagination({ page, totalPages, handlePagingClick, loading }) {
             <button
                 disabled={shouldDisable("back")}
                 onClick={() => handlePagingClick(1)}
+                className="Pagination__button"
             >
-                First
+                <span aria-hidden="true">&laquo;</span>
+                <span className="sr-only">First page</span>
             </button>
             <button
                 disabled={shouldDisable("back")}
                 onClick={() => handlePagingClick(page - 1)}
+                className="Pagination__button"
             >
-                Previous
+                <span aria-hidden="true">&lsaquo;</span>
+                <span className="sr-only">Previous page</span>
             </button>
-            <span>
+            <span className="Pagination__meta">
                 <b>{page}</b> of <b>{totalPages}</b>
             </span>
             <button
                 disabled={shouldDisable("forward")}
                 onClick={() => handlePagingClick(page + 1)}
+                className="Pagination__button"
             >
-                Next
+                <span aria-hidden="true">&rsaquo;</span>
+                <span className="sr-only">Next page</span>
             </button>
             <button
                 disabled={shouldDisable("forward")}
                 onClick={() => handlePagingClick(totalPages)}
+                className="Pagination__button"
             >
-                Last
+                <span aria-hidden="true">&raquo;</span>
+                <span className="sr-only">Last page</span>
             </button>
         </div>
     );
@@ -48,6 +56,6 @@ Pagination.propTypes = {
     totalPages: PropTypes.number.isRequired,
     handlePagingClick: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
-}
+};
 
 export default Pagination;

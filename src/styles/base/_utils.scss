@@ -1,0 +1,7 @@
+.text-center {
+    text-align: center;
+}
+
+.sr-only {
+    @include visually-hidden;
+}
