@@ -1,6 +1,9 @@
-body {
-    margin: 0;
-    font-family: sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+// Use normalize to setup a base for excellent cross-browser support
+@import-normalize;
+
+// Setup for app-wide usage
+@import "base/variables";
+@import "base/page";
+
+// App and components
+@import "components/app";
