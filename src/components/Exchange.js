@@ -39,8 +39,11 @@ function Exchange() {
                     </div>
                     <div className="App__subheader__meta">
                         <div className="App__subheader__origins">
-                            <b>Since: </b> <span>{exchange?.year_established || "N/A"}</span><br />
-                            <b>Country: </b> <span>{exchange.country || "N/A"}</span>
+                            <b>Since: </b>{" "}
+                            <span>{exchange?.year_established || "N/A"}</span>
+                            <br />
+                            <b>Country: </b>{" "}
+                            <span>{exchange.country || "N/A"}</span>
                         </div>
                         <Avatar
                             src={exchange?.image}
@@ -55,19 +58,34 @@ function Exchange() {
                     <>Loading...</>
                 ) : (
                     <>
-                        {exchange.description &&
-                        <>
-                            <h2>Description</h2>
-                            <p>{exchange.description}</p>
-                            <br />
-                        </>
-                        }
+                        {exchange.description && (
+                            <>
+                                <h2>Description</h2>
+                                <p>{exchange.description}</p>
+                                <br />
+                            </>
+                        )}
                         <h2>Trust Score</h2>
-                        <TrustScore score={exchange.trust_score || 0} size={64} />
+                        <TrustScore
+                            score={exchange.trust_score || 0}
+                            size={64}
+                        />
                         <p>
-                            Trust Score measures many facets of what an actively trading cryptocurrency or cryptocurrency exchange should have – namely liquidity, trading activity, scale, technical expertise, cybersecurity and more.
+                            Trust Score measures many facets of what an actively
+                            trading cryptocurrency or cryptocurrency exchange
+                            should have – namely liquidity, trading activity,
+                            scale, technical expertise, cybersecurity and more.
                         </p>
-                        <p>Read more: <a href="https://blog.coingecko.com/trust-score-explained/" target="_blank" rel="noreferrer">https://blog.coingecko.com/trust-score-explained/</a></p>
+                        <p>
+                            Read more:{" "}
+                            <a
+                                href="https://blog.coingecko.com/trust-score-explained/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                https://blog.coingecko.com/trust-score-explained/
+                            </a>
+                        </p>
                         <br />
                         <h2>Social</h2>
                         <table>

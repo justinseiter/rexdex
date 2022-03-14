@@ -1,9 +1,9 @@
-function TrustScore({score, size}) {
+function TrustScore({ score, size }) {
     return (
-        <div className="TrustScore" style={{width: size, height: size}}>
+        <div className="TrustScore" style={{ width: size, height: size }}>
             {score}
         </div>
-    )
+    );
 }
 
 export default TrustScore;
