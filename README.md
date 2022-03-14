@@ -6,6 +6,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+
+### ⚠️ Node >= 14.0.0 required ⚠️
+Node `16` and npm `8` preferred.
+
+Installation will work with `npm@6` but it isn't recommended. 
+
+### `npm i`
 
 ## Available Scripts
 
