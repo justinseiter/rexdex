@@ -1,0 +1,8 @@
+.Exchange {
+    &__meta {
+        display: none;
+        @media (min-width: 640px) {
+            display: block;
+        }
+    }
+}

@@ -14,7 +14,7 @@ function ExchangeList({ exchanges, loading }) {
                     </th>
                     <th>Name</th>
                     <th>Country</th>
-                    <th>Website</th>
+                    <th className="u-show-on-large">Website</th>
                 </tr>
             </thead>
             <tbody>

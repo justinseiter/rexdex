@@ -1,8 +1,7 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PageHeader from "./PageHeader";
 import Avatar from "./Avatar";
-import TrustScore from "../styles/components/TrustScore";
+import TrustScore from "./TrustScore";
 
 function Exchange() {
     let params = useParams();
@@ -18,14 +17,6 @@ function Exchange() {
                 setLoading(false);
             });
     }, [params]);
-
-    const headerMeta = (img, name) => {
-        return (
-            <>
-                <Avatar src={img} alt={name} />
-            </>
-        );
-    };
 
     return (
         <>

@@ -18,14 +18,13 @@ function ExchangeListItem({
                 <td className="has-avatar">
                     {/* alt tag intentionally omitted */}
                     {/* see: https://shrtm.nu/6u9P */}
-
                     <Link to={`/${id}`}>
                         <Avatar src={image} size={18} withText />
                         {name}
                     </Link>
                 </td>
                 <td>{country || "N/A"}</td>
-                <td>
+                <td className="u-show-on-large">
                     {url ? (
                         <a href={url} target="_blank" rel="noreferrer">
                             {prettyUrl(url)}

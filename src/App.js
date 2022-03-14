@@ -15,6 +15,17 @@ function App() {
                 </div>
             </header>
             <Outlet />
+            <footer className="App__footer">
+                <div className="App__footer__copy">© Copyright 2022</div>
+                <a
+                    className="App__footer__link"
+                    target="_blank"
+                    href="http://justinseiter.com"
+                    rel="noreferrer"
+                >
+                    Justin Seiter
+                </a>
+            </footer>
         </div>
     );
 }

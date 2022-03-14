@@ -6,8 +6,11 @@ table {
 th,
 td {
     border-bottom: 1px solid #ccc;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
     text-align: left;
+    @media (min-width: 640px) {
+        padding: 1rem 0.5rem;
+    }
 }
 
 th {

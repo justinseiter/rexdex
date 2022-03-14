@@ -9,3 +9,9 @@
 .u-mr {
     margin-right: 0.5rem;
 }
+
+.u-show-on-large {
+    @media (max-width: 640px) {
+        display: none;
+    }
+}
