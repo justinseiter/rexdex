@@ -32,7 +32,9 @@ function Exchange() {
             <header className="App__subheader">
                 <div className="App__subheader__content">
                     <div>
-                        {/*<Link to="/">B</Link>*/}
+                        <Link to="/" className="App__subheader__back">
+                            &lsaquo;
+                        </Link>
                         <h1 className="App__subheader__heading">
                             {exchange?.name}
                         </h1>

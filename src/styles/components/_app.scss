@@ -28,12 +28,31 @@
 
         &__content {
             margin: auto;
-            padding: 1rem;
+            padding: 0 1rem;
             font-size: 0.75rem;
             max-width: 800px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            min-height: 64px;
+        }
+
+        &__back {
+            position: absolute;
+            left: -1rem;
+            top: 1.25rem;
+            display: block;
+            background: white;
+            height: 22px;
+            width: 22px;
+            text-align: center;
+            line-height: 1rem;
+            border-radius: 40px;
+            color: $primary-color !important;
+            text-decoration: none;
+            font-size: 2rem;
+            border: 1px solid;
         }
 
         &__heading {
