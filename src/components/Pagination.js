@@ -18,7 +18,7 @@ function Pagination({ page, totalPages, handlePagingClick, loading }) {
                 className="Pagination__button"
             >
                 <span aria-hidden="true">&laquo;</span>
-                <span className="sr-only">First page</span>
+                <span className="u-sr-only">First page</span>
             </button>
             <button
                 disabled={shouldDisable("back")}
@@ -26,7 +26,7 @@ function Pagination({ page, totalPages, handlePagingClick, loading }) {
                 className="Pagination__button"
             >
                 <span aria-hidden="true">&lsaquo;</span>
-                <span className="sr-only">Previous page</span>
+                <span className="u-sr-only">Previous page</span>
             </button>
             <span className="Pagination__meta">
                 <b>{page}</b> of <b>{totalPages}</b>
@@ -37,7 +37,7 @@ function Pagination({ page, totalPages, handlePagingClick, loading }) {
                 className="Pagination__button"
             >
                 <span aria-hidden="true">&rsaquo;</span>
-                <span className="sr-only">Next page</span>
+                <span className="u-sr-only">Next page</span>
             </button>
             <button
                 disabled={shouldDisable("forward")}
@@ -45,7 +45,7 @@ function Pagination({ page, totalPages, handlePagingClick, loading }) {
                 className="Pagination__button"
             >
                 <span aria-hidden="true">&raquo;</span>
-                <span className="sr-only">Last page</span>
+                <span className="u-sr-only">Last page</span>
             </button>
         </div>
     );

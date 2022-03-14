@@ -34,8 +34,8 @@ table caption {
     font-style: italic;
 }
 
-td.has-avatar > div {
-    display: flex;
+td.has-avatar > a {
+    display: inline-flex;
     align-items: center;
     height: 30px;
     overflow: hidden;

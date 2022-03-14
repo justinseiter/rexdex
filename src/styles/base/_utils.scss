@@ -1,7 +1,11 @@
-.text-center {
+.u-text-center {
     text-align: center;
 }
 
-.sr-only {
+.u-sr-only {
     @include visually-hidden;
+}
+
+.u-mr {
+    margin-right: 0.5rem;
 }

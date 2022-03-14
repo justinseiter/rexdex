@@ -16,12 +16,13 @@ function ExchangeListItem({
             <tr>
                 <td>{rank}</td>
                 <td className="has-avatar">
-                    <div>
-                        {/* alt tag intentionally omitted */}
-                        {/* see: https://shrtm.nu/6u9P */}
-                        <Avatar src={image} />
-                        <Link to={`/${id}`}>{name}</Link>
-                    </div>
+                    {/* alt tag intentionally omitted */}
+                    {/* see: https://shrtm.nu/6u9P */}
+
+                    <Link to={`/${id}`}>
+                        <Avatar src={image} size={18} withText />
+                        {name}
+                    </Link>
                 </td>
                 <td>{country || "N/A"}</td>
                 <td>

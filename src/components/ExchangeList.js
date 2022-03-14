@@ -10,7 +10,7 @@ function ExchangeList({ exchanges, loading }) {
             <thead>
                 <tr>
                     <th width="30px">
-                        <span className="sr-only">Trust Rank</span>
+                        <span className="u-sr-only">Trust Rank</span>
                     </th>
                     <th>Name</th>
                     <th>Country</th>

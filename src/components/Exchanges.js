@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import ExchangeList from "./ExchangeList";
 import Pagination from "./Pagination";
 import { Outlet } from "react-router-dom";
+import PageHeader from "./PageHeader";
 
 const PER_PAGE = 10;
 const API_BASE_URL = "https://api.coingecko.com/api/v3/exchanges";
+const date = new Date();
 
 function Exchanges() {
     const [exchanges, setExchanges] = useState([]);
@@ -27,24 +29,35 @@ function Exchanges() {
             });
     }, [page]);
 
+    const headerMeta = () => {
+        return (
+            <>
+                <b>Last updated:&nbsp;</b>
+                <span>{date.toLocaleString("en-US")}</span>
+            </>
+        );
+    };
+
     return (
         <>
-            <h1>Exchanges</h1>
-            <Pagination
-                page={page}
-                totalPages={totalPages}
-                handlePagingClick={(pageNum) => setPage(pageNum)}
-                loading={loading}
-            />
-            <div style={{minHeight: '700px'}}>
-            <ExchangeList exchanges={exchanges} loading={loading} />
-            </div>
-            <Pagination
-                page={page}
-                totalPages={totalPages}
-                handlePagingClick={(pageNum) => setPage(pageNum)}
-                loading={loading}
-            />
+            <PageHeader title="Exchanges" meta={headerMeta()} />
+            <main className="App__main">
+                <Pagination
+                    page={page}
+                    totalPages={totalPages}
+                    handlePagingClick={(pageNum) => setPage(pageNum)}
+                    loading={loading}
+                />
+                <div style={{ minHeight: "700px" }}>
+                    <ExchangeList exchanges={exchanges} loading={loading} />
+                </div>
+                <Pagination
+                    page={page}
+                    totalPages={totalPages}
+                    handlePagingClick={(pageNum) => setPage(pageNum)}
+                    loading={loading}
+                />
+            </main>
         </>
     );
 }

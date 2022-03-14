@@ -1,6 +1,7 @@
 .Avatar {
     border-radius: 40px;
     display: inline-block;
-    margin-right: 0.5rem;
-    background: pink;
+    border: 2px solid $primary-color;
+    padding: 0.1rem;
+    background: white;
 }
