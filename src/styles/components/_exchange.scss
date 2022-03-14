@@ -1,8 +1,15 @@
 .Exchange {
-    &__meta {
-        display: none;
-        @media (min-width: 640px) {
-            display: block;
+    &__social {
+        padding: 0;
+        list-style: disc;
+        &__item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        &__label {
+            font-weight: bold;
+            width: 100px;
         }
     }
 }

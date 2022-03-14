@@ -15,3 +15,12 @@
         display: none;
     }
 }
+
+.u-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    white-space: nowrap;
+    display: block;
+    max-width: 80%;
+}

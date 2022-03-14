@@ -2,21 +2,34 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Avatar from "./Avatar";
 import TrustScore from "./TrustScore";
+import Error from "./Error";
 
 function Exchange() {
-    let params = useParams();
+    const params = useParams();
     const [loading, setLoading] = useState(false);
     const [exchange, setExchange] = useState({});
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         setLoading(true);
         fetch(`https://api.coingecko.com/api/v3/exchanges/${params.exchangeId}`)
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 200) {
+                    return res.json();
+                } else {
+                    throw new Error();
+                }
+            })
             .then((exchange) => {
                 setExchange(exchange);
                 setLoading(false);
+            })
+            .catch((err) => {
+                setError(true);
             });
     }, [params]);
+
+    if (error) return <Error />;
 
     return (
         <>
@@ -81,112 +94,93 @@ function Exchange() {
                         </p>
                         <br />
                         <h2>Social</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Service</th>
-                                    <th>URL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {exchange.twitter_handle && (
-                                    <tr>
-                                        <td>Twitter</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={`https://twitter.com/${exchange.twitter_handle}`}
-                                                rel="noreferrer"
-                                            >{`https://twitter.com/${exchange.twitter_handle}`}</a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.facebook_url && (
-                                    <tr>
-                                        <td>Facebook</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.facebook_url}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.facebook_url}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.reddit_url && (
-                                    <tr>
-                                        <td>Reddit</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.reddit_url}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.reddit_url}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.telegram_url && (
-                                    <tr>
-                                        <td>Telegram</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.telegram_url}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.telegram_url}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.slack_url && (
-                                    <tr>
-                                        <td>Slack</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.slack_url}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.slack_url}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.other_url_1 && (
-                                    <tr>
-                                        <td>Other</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.other_url_1}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.other_url_1}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                                {exchange.other_url_2 && (
-                                    <tr>
-                                        <td>Other</td>
-                                        <td>
-                                            <a
-                                                target="_blank"
-                                                href={exchange.other_url_2}
-                                                rel="noreferrer"
-                                            >
-                                                {exchange.other_url_2}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
+                        <ul className="Exchange__social">
+                            {exchange.twitter_handle && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={`https://twitter.com/${exchange.twitter_handle}`}
+                                        rel="noreferrer"
+                                    >
+                                        Twitter
+                                    </a>
+                                </li>
+                            )}
+                            {exchange.facebook_url && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={exchange.facebook_url}
+                                        rel="noreferrer"
+                                    >
+                                        Facebook
+                                    </a>
+                                </li>
+                            )}
+                            {exchange.reddit_url && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={exchange.reddit_url}
+                                        rel="noreferrer"
+                                    >
+                                        Reddit
+                                    </a>
+                                </li>
+                            )}
+                            {exchange.telegram_url && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={exchange.telegram_url}
+                                        rel="noreferrer"
+                                    >
+                                        Telegram
+                                    </a>
+                                </li>
+                            )}
+                            {exchange.slack_url && (
+                                <li className="Exchange__social__item">
+                                    <div className="Exchange__social__label">
+                                        Slack:
+                                    </div>
+                                    <div>
+                                        <a
+                                            target="_blank"
+                                            href={exchange.slack_url}
+                                            rel="noreferrer"
+                                            className="u-truncate"
+                                        >
+                                            {exchange.slack_url}
+                                        </a>
+                                    </div>
+                                </li>
+                            )}
+                            {exchange.other_url_1 && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={exchange.other_url_1}
+                                        rel="noreferrer"
+                                        className="u-truncate"
+                                    >
+                                        {exchange.other_url_1}
+                                    </a>
+                                </li>
+                            )}
+                            {exchange.other_url_2 && (
+                                <li className="Exchange__social__item">
+                                    <a
+                                        target="_blank"
+                                        href={exchange.other_url_2}
+                                        rel="noreferrer"
+                                        className="u-truncate"
+                                    >
+                                        {exchange.other_url_2}
+                                    </a>
+                                </li>
+                            )}
+                        </ul>
                     </>
                 )}
             </main>
