@@ -1,0 +1,9 @@
+.Exchanges {
+    &__list {
+        min-height: 570px;
+
+        @media (min-width: $small-breakpoint) {
+            min-height: 660px;
+        }
+    }
+}

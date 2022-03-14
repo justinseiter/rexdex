@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import ExchangeList from "./ExchangeList";
 import Pagination from "./Pagination";
-import { Outlet } from "react-router-dom";
 import PageHeader from "./PageHeader";
 import Error from "./Error";
+import { API_BASE_URL, PAGING_ITEMS_PER_PAGE } from "../utils";
 
-const PER_PAGE = 10;
-const API_BASE_URL = "https://api.coingecko.com/api/v3/exchanges";
 const date = new Date();
 
 function Exchanges() {
@@ -18,12 +16,14 @@ function Exchanges() {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`${API_BASE_URL}?per_page=${PER_PAGE}&page=${page}`)
+        fetch(`${API_BASE_URL}?per_page=${PAGING_ITEMS_PER_PAGE}&page=${page}`)
             .then((res) => {
                 if (res.status === 200) {
                     const headers = [...res.headers];
                     // Parses the total_count of exchanges and divides by our paging var from response headers
-                    setTotalPages(Math.ceil(headers[4][1] / PER_PAGE));
+                    setTotalPages(
+                        Math.ceil(headers[4][1] / PAGING_ITEMS_PER_PAGE)
+                    );
                     return res.json();
                 } else {
                     throw new Error();
@@ -50,7 +50,7 @@ function Exchanges() {
     if (error) return <Error />;
 
     return (
-        <>
+        <div className="Exchanges">
             <PageHeader title="Exchanges" meta={headerMeta()} />
             <main className="App__main">
                 <Pagination
@@ -59,7 +59,9 @@ function Exchanges() {
                     handlePagingClick={(pageNum) => setPage(pageNum)}
                     loading={loading}
                 />
-                <ExchangeList exchanges={exchanges} loading={loading} />
+                <div className="Exchanges__list">
+                    <ExchangeList exchanges={exchanges} loading={loading} />
+                </div>
                 <Pagination
                     page={page}
                     totalPages={totalPages}
@@ -67,7 +69,7 @@ function Exchanges() {
                     loading={loading}
                 />
             </main>
-        </>
+        </div>
     );
 }
 

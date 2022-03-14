@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Avatar from "./Avatar";
 import TrustScore from "./TrustScore";
 import Error from "./Error";
+import { API_BASE_URL } from "../utils";
 
 function Exchange() {
     const params = useParams();
@@ -12,7 +13,7 @@ function Exchange() {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://api.coingecko.com/api/v3/exchanges/${params.exchangeId}`)
+        fetch(`${API_BASE_URL}/${params.exchangeId}`)
             .then((res) => {
                 if (res.status === 200) {
                     return res.json();
