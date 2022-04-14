@@ -1,18 +1,18 @@
 # Rexdex
+
 **🏎️ 💨 Test drvie at: [https://gracious-edison-881848.netlify.app](https://gracious-edison-881848.netlify.app)**
 
 ![rexdex](./readme-screenshot.png)
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
 
-
 ### ⚠️ Node >= 14.0.0 required ⚠️
+
 Node `16` and npm `8` preferred.
 
-Installation will work with `npm@6` but it isn't recommended. 
+Installation will work with `npm@6` but it isn't recommended.
 
 ### `npm i`
 
